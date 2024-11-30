@@ -33,7 +33,7 @@ go_rest_api/
 
 ### Prerequisites
 
-- Go 1.17 or later
+- Go 1.23.3 or later
 - Docker
 - Docker Compose
 
@@ -44,39 +44,54 @@ go_rest_api/
    ```sh
    git clone https://github.com/yourusername/go_rest_api.git
    cd go_rest_api
+   ```
+
 2. Create a .env file in the root directory with the following content:
-```
-DB_HOST=db
-DB_PORT=5432
-DB_USER=yourusername
-DB_PASSWORD=yourpassword
-DB_NAME=yourdatabase
-```
+
+   ```env
+   DB_HOST=db
+   DB_PORT=5432
+   DB_USER=yourusername
+   DB_PASSWORD=yourpassword
+   DB_NAME=yourdatabase
+   ```
+
 3. Build and run the application using Docker Compose:
-```bash
-docker-compose up --build
-```
 
-Using Air for Hot Reload
+   ```bash
+   docker-compose up --build
+   ```
+
+### Using Air for Hot Reload
+
 Air is a live reload tool for Go applications. It watches for changes in your source code and automatically reloads the application.
-Install Air:
-curl -fLo air https://raw.githubusercontent.com/cosmtrek/air/master/bin/install.sh
-chmod +x air
-mv air /usr/local/bin
 
-Run the application with Air:
+1. Install Air:
 
-air
+   ```bash
+   curl -fLo air https://raw.githubusercontent.com/cosmtrek/air/master/bin/install.sh
+   chmod +x air
+   mv air /usr/local/bin
+   ```
+
+2. Run the application with Air:
+
+   ```bash
+   air
+   ```
 
 This will start the application and watch for any changes in your source code. When changes are detected, Air will automatically reload the application.
 
-Usage
+## Usage
+
 The boilerplate includes a basic user service example. You can extend it by adding more services and routes as needed.
 
-Contributing
+## Contributing
+
 Feel free to submit issues and pull requests for improvements and new features.
 
-License
+## License
+
 This project is licensed under the MIT License.
 
 
