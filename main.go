@@ -4,8 +4,9 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
-	"github.com/wandriputra/go_rest_api/database"
-	"github.com/wandriputra/go_rest_api/router"
+	"github.com/wandriputra/go_rest_api/src/controllers/rest"
+	"github.com/wandriputra/go_rest_api/src/pkg/database"
+	"github.com/wandriputra/go_rest_api/src/services"
 )
 
 func main() {
@@ -20,7 +21,9 @@ func main() {
 	}))
 	app.Use(cors.New())
 
-	router.SetupRoutes(app)
+	userService := services.NewUserService()
+
+	rest.InitRestUser(app, userService)
 
 	app.Use(func(c *fiber.Ctx) error {
 		return c.Status(404).JSON(fiber.Map{
